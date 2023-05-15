@@ -80,9 +80,7 @@ struct AddUserView: View {
 //MARK: - All users class
 class UserList : ObservableObject  {
     @Published var users: [User] = [
-        User(name: "Admin", age: "20", pet: "Labrador "),
-        User(name: "Admin2", age: "21", pet: "Labrador "),
-        User(name: "Admin3", age: "22", pet: "Labrador ")
+        User(name: "Admin", age: "20", pet: "Labrador ")
     ]
     
     func add(_ user: User) {
@@ -175,41 +173,3 @@ struct Users: View {
         }
         }
 }
-
-/*
-//MARK: - User data editor view  "WIP"
-struct UserEditor: View {
-    
-    @Environment(\.dismiss) var dismiss
-    
-    @Binding var user : User
-    
-    @State private var editName = String()
-    @State private var editAge = String()
-    @State private var editPet = String()
-    
-    var body: some View {
-        List {
-            Section{
-                HStack {
-                    Image(systemName: "pencil.and.outline")
-                    Text("New user data:")
-                }
-            }.listRowBackground(Color.mint).foregroundColor(.white)
-            Section{
-                TextField("\(user.name)", text: $editName)
-                TextField("\(user.age)", text: $editAge)
-                TextField("\(user.pet)", text: $editPet)
-            }.foregroundStyle(.secondary)
-            Section{
-                    Button("Save"){
-                        dismiss()
-                        user.name = editName
-                        user.age = editAge
-                        user.pet = editPet
-                    }.padding(.leading, 130)
-            }
-        }
-    }
-}
-*/

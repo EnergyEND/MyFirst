@@ -58,6 +58,7 @@ struct ConvertorView: View {
                 
                 VStack{
                     if inputData != "" {
+                        
                         HStack {
                             switch outputChar {
                             case .celsius:
@@ -132,7 +133,7 @@ struct ConvertorView: View {
                         }.foregroundColor(.blue)
                             .padding(5)
                             .overlay(RoundedRectangle(cornerRadius: 50).stroke(Color.blue, lineWidth: 1))
-
+                        
                         
                         HStack {
                             Text("Output")
@@ -181,14 +182,16 @@ struct ConvertorView: View {
                             .foregroundColor(.white)
                         
                         Button {
-                            inputData = ""
+                            withAnimation {
+                                inputData = ""
+                            }
                         } label: {
                             Text("Clear")
                         }.buttonStyle(.bordered)
                             .tint(.blue)
-                        .foregroundColor(.white)
+                            .foregroundColor(.white)
                     }
-
+                    
                 }
             }
         }
